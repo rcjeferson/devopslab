@@ -8,5 +8,11 @@ csrf = CSRFProtect(app)
 def pagina_inicial():
     return "Hello World by Jeferson (Cloud Architecture)"
 
-if __name__ == '__main__':
-    app.run()
+@app.route('/bug')
+def bad():
+    try:
+        raise TypeError()
+    except TypeError as e:
+        print(e)
+    except TypeError as e:
+        print("Duplicado, ou seja, nunca vai entrar aqui")
